@@ -3,7 +3,7 @@ import { FiClock, FiTrendingUp, FiClipboard, FiChevronDown, FiVideo, FiFileText,
 
 function MainContent() {
   const [activeTab, setActiveTab] = useState('Learning Material');
-  const [activeChapter, setActiveChapter] = useState(1); // Track the selected chapter
+  const [activeChapter, setActiveChapter] = useState(1);
 
   return (
     <div style={styles.pageContainer}>
@@ -139,7 +139,6 @@ function Part({ partNumber, title, time, difficulty, tasks, completion }) {
         </div>
       )}
       <div style={styles.completionContainer}>
-        <span style={styles.completionText}>{completion}% Completed</span>
         <div style={styles.progressBar}>
           <div style={{ ...styles.progressFill, width: `${completion}%` }}></div>
         </div>
@@ -225,6 +224,8 @@ const styles = {
     padding: '15px',
     marginBottom: '15px',
     backgroundColor: '#fff',
+    position: 'relative',
+    paddingBottom: '20px',
   },
   partHeader: {
     display: 'flex',
@@ -256,29 +257,28 @@ const styles = {
   resourceItem: {
     display: 'flex',
     alignItems: 'center',
-    gap: '8px',
+    gap: '10px',
     padding: '5px 0',
   },
   resourceText: {
     color: '#555',
   },
   completionContainer: {
-    marginTop: '10px',
-  },
-  completionText: {
-    fontSize: '12px',
-    color: '#666',
+    position: 'absolute',
+    bottom: '0',
+    left: '0',
+    right: '0',
   },
   progressBar: {
     height: '8px',
-    borderRadius: '4px',
+    borderRadius: '0 0 8px 8px',
     backgroundColor: '#e0e0e0',
-    marginTop: '5px',
+    width: '100%',
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#007bff',
-    borderRadius: '4px',
+    backgroundColor: '#172B4D ',
+    borderRadius: '0 0 8px 8px',
   },
 };
 
